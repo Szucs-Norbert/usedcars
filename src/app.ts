@@ -9,10 +9,10 @@
 * Licenc: GNU GPL
 */
 
-import { Car } from "./car.js";
+import { Car } from "./car";
 
 
-const url= "http://localhost:3000/cars";
+var url= "https://szit.hu/download/adat/cars.json";
 var cars=[];
 const ul = document.querySelector('#cars');
 
@@ -23,7 +23,7 @@ fetch(url)
     data.forEach((car:Car) => {
         let car2= new Car(car.id, car.plate, car.color, car.brand, car.year, car.capacity,  car.fule,  car.price, car.sold, );
         cars.push(car2);      
-        //console.log(car.id);       
+        console.log(car.plate);       
     });
 
     cars.forEach((car:Car)=>{
@@ -31,6 +31,8 @@ fetch(url)
         li.textContent = car.plate;
         ul.appendChild(li);
     });
+
+    console.log(data);
 });
 
 
