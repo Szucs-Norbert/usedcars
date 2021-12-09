@@ -5,34 +5,34 @@
 * Group: Szoft II/N
 * Date: 2021-12-08
 * Github: https://github.com/Szucs-Norbert/
-          
+          https://github.com/Marci971104/     
 * Licenc: GNU GPL
 */
 
+import { Car } from "./car";
 
-interface icar {
-    id:number;
-    plate:string;
-    color:string;
-    brand:string;  
-    year:number;
-    capacity:number;
-    fule:string;
-    price:number;
-    sold:string;
-    lekerBrand: () => string;
-}
 
-export class Car implements icar {
-    id:number= 0;
-    plate:string= "";
-    color:string= "";
-    brand:string= "";  
-    year:number= 0;
-    capacity:number= 0;
-    fule:string= "";
-    price:number= 0;
-    sold:string= "";
-    lekerBrand = () => this.brand;
-}
+var url='https://szit.hu/download/adat/cars.json'
+var cars=[];
+const ul = document.querySelector('#cars');
+
+fetch(url)
+.then(Response=>Response.json())
+.then(data =>{
+
+    data.forEach((car:Car) => {
+        let car2= new Car(car.id, car.plate, car.color, car.brand, car.year, car.capacity,  car.fule,  car.price, car.sold, );
+        cars.push(car2);      
+        console.log(car.plate);       
+    });
+
+    cars.forEach((car:Car)=>{
+        let li = document.createElement('li');
+        li.textContent = car.plate;
+        ul.appendChild(li);
+    });
+});
+
+
+
 
