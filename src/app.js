@@ -1,4 +1,3 @@
-"use strict";
 /*
 * File: app.ts
 * Author: Szűcs Norbert, Rohrbacher Marcell János
@@ -9,21 +8,20 @@
           https://github.com/Marci971104/
 * Licenc: GNU GPL
 */
-exports.__esModule = true;
-var car_1 = require("./car");
-var url = 'https://szit.hu/download/adat/cars.json';
+import { Car } from "./car.js";
+const url = "http://localhost:3000/cars";
 var cars = [];
-var ul = document.querySelector('#cars');
+const ul = document.querySelector('#cars');
 fetch(url)
-    .then(function (Response) { return Response.json(); })
-    .then(function (data) {
-    data.forEach(function (car) {
-        var car2 = new car_1.Car(car.id, car.plate, car.color, car.brand, car.year, car.capacity, car.fule, car.price, car.sold);
+    .then(Response => Response.json())
+    .then(data => {
+    data.forEach((car) => {
+        let car2 = new Car(car.id, car.plate, car.color, car.brand, car.year, car.capacity, car.fule, car.price, car.sold);
         cars.push(car2);
         //console.log(car.id);       
     });
-    cars.forEach(function (car) {
-        var li = document.createElement('li');
+    cars.forEach((car) => {
+        let li = document.createElement('li');
         li.textContent = car.plate;
         ul.appendChild(li);
     });

@@ -9,10 +9,10 @@
 * Licenc: GNU GPL
 */
 
-import { Car } from "./car";
+import { Car } from "./car.js";
 
 
-var url='https://szit.hu/download/adat/cars.json'
+const url= "http://localhost:3000/cars";
 var cars=[];
 const ul = document.querySelector('#cars');
 
