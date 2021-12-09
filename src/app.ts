@@ -23,7 +23,7 @@ fetch(url)
     data.forEach((car:Car) => {
         let car2= new Car(car.id, car.plate, car.color, car.brand, car.year, car.capacity,  car.fule,  car.price, car.sold, );
         cars.push(car2);      
-        console.log(car.plate);       
+        //console.log(car.id);       
     });
 
     cars.forEach((car:Car)=>{

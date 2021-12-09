@@ -20,7 +20,7 @@ fetch(url)
     data.forEach(function (car) {
         var car2 = new car_1.Car(car.id, car.plate, car.color, car.brand, car.year, car.capacity, car.fule, car.price, car.sold);
         cars.push(car2);
-        console.log(car.plate);
+        //console.log(car.id);       
     });
     cars.forEach(function (car) {
         var li = document.createElement('li');
